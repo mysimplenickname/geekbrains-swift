@@ -16,13 +16,13 @@ if a != 0
         let D : Double = sqrt(d)
         if D == 0
         {
-            let x : Double = (b * -1) / 2 * a
+            let x : Double = (b * -1) / (2 * a)
             print("x = \(x).\n")
         }
         else
         {
-            let x1 : Double = (b * -1 + D) / 2 * a,
-                x2 : Double = (b * -1 - D) / 2 * a
+            let x1 : Double = (b * -1 + D) / (2 * a),
+                x2 : Double = (b * -1 - D) / (2 * a)
             print("x1 = \(x1), x2 = \(x2).\n")
         }
     }
