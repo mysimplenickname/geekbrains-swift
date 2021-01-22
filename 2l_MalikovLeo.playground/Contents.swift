@@ -65,49 +65,31 @@ print(fibArray, "\n")
 
 //------------------------------------------
 
-var primeArray : [Int] = []
-for i in 2...10
+func isPrime(_ number : Int, _ primeArray : inout [Int]) -> Bool
 {
-    primeArray.append(i)
+    var i : Int = 0
+    while i < primeArray.count
+    {
+        if number % primeArray[i] == 0
+        {
+            return false
+        }
+        i += 1
+    }
+    return true
 }
 
-print(primeArray)
+var primeArray : [Int] = [2]
 
-var p = primeArray[0]
+var number = 3
 
-i = 0
-while primeArray.count < 10
+while primeArray.count < 100
 {
-    print("i = \(i)")
-    while primeArray.count < 10
+    if isPrime(number, &primeArray)
     {
-        primeArray.append(primeArray.last! + 1)
+        primeArray.append(number)
     }
-    
-    print("array here = \(primeArray)")
-    
-    var newPIndx = 0
-    
-    for elem in primeArray where elem > p
-    {
-        if elem % p == 0 && elem != p
-        {
-            primeArray.remove(at: i)
-        }
-        else
-        {
-            if newPIndx == 0 && elem != p
-            {
-                newPIndx = i
-            }
-            i += 1
-        }
-    }
-    
-    print("array there = \(primeArray)")
-    
-    p = primeArray[newPIndx]
-    i = newPIndx
+    number += 1
 }
 
 print(primeArray)
